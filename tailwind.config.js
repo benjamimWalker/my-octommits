@@ -13,7 +13,11 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
-        },
+            colors: {
+                'dark-primary': '#13191b',
+                'dark-secondary': '#1d2428',
+            }
+        }
     },
 
     plugins: [require('@tailwindcss/forms')],
