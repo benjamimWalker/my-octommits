@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -23,20 +22,8 @@ class User extends Authenticatable
         'github_refresh_token'
     ];
 
-    protected $hidden = [
-        'github_token',
-        'github_refresh_token',
-        'remember_token'
-    ];
-
-    protected $appends = [
-        'github-url'
-    ];
-
-    public function githubUrl(): Attribute
+    public function repositories(): HasMany
     {
-        return Attribute::make(
-            get: fn () => 'https://github.com/' . $this->nickname
-        );
+        return $this->hasMany(Repository::class);
     }
 }
