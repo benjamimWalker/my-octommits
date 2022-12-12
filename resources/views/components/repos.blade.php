@@ -6,7 +6,7 @@
             <div class="bg-dark-secondary flex items-center p-2 rounded-xl shadow-xl border">
                 <div class="flex-grow p-1">
                 <span class="font-semibold text-gray-400">
-                    {{ $repo->name }}
+                    <a href="/{{ $repo->id }}/history">{{ $repo->name }}</a>
                 </span>
                 </div>
                 <a href="{{ "https://github.com/$repo->full_name" }}" target="_blank">
