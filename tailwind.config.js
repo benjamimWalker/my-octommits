@@ -16,6 +16,7 @@ module.exports = {
             colors: {
                 'dark-primary': '#13191b',
                 'dark-secondary': '#1d2428',
+                'chart-color': '#222e40'
             }
         }
     },
