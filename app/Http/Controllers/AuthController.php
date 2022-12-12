@@ -16,11 +16,6 @@ class AuthController extends Controller
         ]);
     }
 
-    public function login()
-    {
-
-    }
-
     public function githubCallback()
     {
         $githubUser = Socialite::driver('github')->user();
