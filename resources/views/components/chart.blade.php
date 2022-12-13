@@ -4,7 +4,9 @@
     @endpush
 @endonce
 
-<div x-data="{labels: @entangle('dates'), commits: @entangle('commits')}"
+@props(['data'])
+
+<div x-data="{labels: {{ json_encode($data->pluck('date')->toArray()) }}, commits: {{ json_encode($data->pluck('commits')->toArray()) }}}"
      x-init="
         data = {
             labels: labels,
@@ -76,8 +78,6 @@
         );
      "
 >
-
-{{--        extract to component--}}
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6">
             <canvas id="historyChart" width="400" height="200" x-ref="historyChart" class="bg-chart-color rounded-lg text-white"></canvas>
