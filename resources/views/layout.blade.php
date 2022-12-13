@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <livewire:styles/>
+    @livewireStyles
 </head>
 <body class="bg-slate-800 h-screen">
 @yield('content')
-<livewire:scripts/>
+@livewireScripts
 @stack('scripts')
 </body>
 </html>
