@@ -33,10 +33,10 @@ class SaveUserRepositories implements ShouldQueue
                     'user_id' => $this->userId
                 ])->id;
 
-            $repositoryBatches[] = new SaveRepositoriesCommits($this->userToken, $repositoryId,
-                $repository['full_name']);
+//            $repositoryBatches[] = new SaveRepositoriesCommits($this->userToken, $repositoryId,
+//                $repository['full_name']);
         }
 
-        Bus::batch($repositoryBatches)->dispatch();
+//        Bus::batch($repositoryBatches)->dispatch();
     }
 }
