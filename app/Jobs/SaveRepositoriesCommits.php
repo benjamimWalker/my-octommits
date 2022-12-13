@@ -51,13 +51,13 @@ class SaveRepositoriesCommits implements ShouldQueue
 
         for ($i = 0; $i < 90; $i++) {
             if (array_key_exists($date = Carbon::now()->subDays($i)->format('d/m'), $historyData)) {
-                History::create([
+                History::insert([
                     'date' => $date,
                     'commits' => $historyData[$date],
                     'repository_id' => $this->repositoryId
                 ]);
             } else {
-                History::create([
+                History::insert([
                     'date' => $date,
                     'commits' => 0,
                     'repository_id' => $this->repositoryId

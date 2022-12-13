@@ -14,9 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('histories', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('repository_id')->constrained();
-            $table->string('date');
+            $table->string('date', 5);
             $table->integer('commits');
         });
     }
