@@ -11,6 +11,10 @@ class RepoController extends Controller
 
         SaveRepositoriesCommits::dispatchSync(auth()->user()->github_token, $repo->id, $repo->full_name);
 
-        return view('history', ['repo' => $repo, 'title' => $repo->name . ' | My Octommits']);
+        return view('history', [
+            'repo' => $repo,
+            'title' => $repo->name . ' | My Octommits',
+            'data' => $repo->histories()->select(['date', 'commits'])->get()->reverse()
+        ]);
     }
 }
