@@ -11,7 +11,7 @@
         data = {
             labels: labels,
             datasets: [{
-                label: 'Number of commits per day',
+                label: 'Number of commits per day | Total of ' + commits.reduce((a, b) => a + b, 0),
                 backgroundColor: 'rgb(185,202,255)',
                 borderColor: 'rgb(1,102,229)',
                 data: commits,
