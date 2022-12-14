@@ -21,8 +21,6 @@ class AuthTest extends TestCase
 
     public function test_home_is_not_redirected_when_user_is_authenticated()
     {
-        $this->withoutExceptionHandling();
-
         $this->actingAs($this->user);
 
         $response = $this->get('/');
