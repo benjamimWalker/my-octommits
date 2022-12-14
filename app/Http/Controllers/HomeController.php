@@ -10,7 +10,8 @@ class HomeController extends Controller
     {
         $user = auth()->user();
         $title = config('app.name');
+        $repos = $user->repositories()->paginate();
 
-        return view('home', compact('user', 'title'));
+        return view('home', compact('user', 'title', 'repos'));
     }
 }

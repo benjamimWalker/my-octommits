@@ -49,20 +49,23 @@ class SaveRepositoriesCommits implements ShouldQueue
             }
         }
 
+        $data = [];
         for ($i = 0; $i < 90; $i++) {
             if (array_key_exists($date = Carbon::now()->subDays($i)->format('d/m'), $historyData)) {
-                History::insert([
+                $data[] = [
                     'date' => $date,
                     'commits' => $historyData[$date],
                     'repository_id' => $this->repositoryId
-                ]);
+                ];
             } else {
-                History::insert([
+                $data[] = [
                     'date' => $date,
                     'commits' => 0,
                     'repository_id' => $this->repositoryId
-                ]);
+                ];
             }
         }
+
+        History::insert($data);
     }
 }
