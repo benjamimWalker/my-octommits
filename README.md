@@ -33,3 +33,10 @@ To run the application locally, execute the following commands.
 npm run dev or yarn dev
 php artisan serve
 ```
+
+## Testing
+
+You can run tests with the command.
+```
+php artisan test
+```
