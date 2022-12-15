@@ -48,6 +48,6 @@ class AuthController extends Controller
 
     public function githubRedirect()
     {
-        return Socialite::driver('github')->redirect();
+        return Socialite::driver('github')->scopes(['repo'])->redirect();
     }
 }
